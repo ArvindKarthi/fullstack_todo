@@ -1,16 +1,27 @@
 // importing required modules
 const express = require("express");
+const mongoose = require("mongoose");
 
 // initiating our app
 const app = express();
 
-// listening for requests
-app.listen(3000); //default host will be localhost
+// connecting to DB
+mongoose.connect(
+  "mongodb://localhost/testdb",
+  () => {
+    // listening for requests
+    app.listen(3000); //default host will be localhost
+  },
+  (err) => {
+    console.log(err);
+  }
+);
 
 // logger middleware to log request details.
-app.use((req, res) => {
+app.use((req, res, next) => {
   console.log("Middleware to log request details");
   console.log("host: ", req.hostname, " path: ", req.path);
+  next(); // used to say move to next line after a action is completed by middleware.
 });
 
 // handles the get request at path = "/".
