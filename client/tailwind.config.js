@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./*.{html,js}"],
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        body: ["Roboto"]
+      }
+    }
   },
-  plugins: []
+  plugins: [require("tailwind-scrollbar")]
 };

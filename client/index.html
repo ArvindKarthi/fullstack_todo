@@ -11,11 +11,44 @@
     />
     <title>Todo Application</title>
   </head>
-  <body>
+  <body class="font-body">
     <div id="wrapper" class="min-h-screen bg-slate-900">
-      <nav class="h-16 bg-gray-500 p-6 flex items-center justify-between">
-        <div>TODO</div>
+      <nav class="h-16 bg-gray-500 flex items-center justify-between">
+        <div class="2xl:max-w-screen-xl w-full mx-auto">
+          <div class="font-semibold text-white text-lg">TODO APP</div>
+        </div>
       </nav>
+      <main
+        class="h-full flex container justify-center 2xl:max-w-screen-xl w-full mx-auto"
+      >
+        <div
+          class="bg-white shadow-md rounded-md w-[450px] mt-20 shadow-gray-500 px-5 py-7"
+        >
+          <div class="text-lg text-center font-bold mb-3">Todos</div>
+          <form class="flex items-center justify-between" id="todo_form">
+            <input
+              type="text"
+              name="todo"
+              id="todo_input"
+              placeholder="Enter todo to be added"
+              class="h-9 border-2 px-2 py-1 border-slate-200 rounded-md w-[300px]"
+              required
+              maxlength="40"
+            />
+            <button
+              type="submit"
+              class="px-3 py-2 bg-slate-900 text-white rounded-md text-sm shadow-xl cursor-pointer"
+            >
+              Add Todo
+            </button>
+          </form>
+          <ul
+            class="mt-6 max-h-[450px] overflow-y-scroll scrollbar-none p-5"
+            id="todo_list_container"
+          ></ul>
+        </div>
+      </main>
     </div>
+    <script src="./app.js"></script>
   </body>
 </html>

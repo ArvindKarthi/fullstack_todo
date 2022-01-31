@@ -2,9 +2,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const todoRoutes = require("./routes/todoRoutes");
+const cors = require("cors");
 
 // initiating our app
 const app = express();
+
+// cors issue fix
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"]
+  })
+);
 
 // connecting to DB
 mongoose.connect(

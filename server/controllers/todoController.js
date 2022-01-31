@@ -40,8 +40,8 @@ const todo_get_single = (req, res) => {
 const todo_create_single = (req, res) => {
   if (req?.body?.todo) {
     Todo.create(req.body.todo)
-      .then(() => {
-        res.send({ message: "User added successfully." });
+      .then((data) => {
+        res.send({ message: "User added successfully.", todo: data });
       })
       .catch((err) => {
         defaultError(res, "Failed to add user.");
